@@ -1,0 +1,22 @@
+{% extends "base.dhtml" %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="container mx-auto">
+        <h1>Register</h1>
+        <form action="{% url 'register' %}" autocomplete="off" method="POST">
+            {% csrf_token %}
+            <div class="flex flex-col items-left border-solid border-2 rounded">
+                <label>{{ form.username.label_tag }}</label>
+                {{ form.username.errors }}
+                {% render_field form.username class="rounded" hx-post="/check_username/" hx-swap="outerhtml" hx-trigger="keyup" hx-target="#username-error" %}
+                <div id="username-error"></div>
+                <label>{{ form.password1.label_tag }}</label>
+                {{ form.password1.errors }}
+                {% render_field form.password1 class="rounded" hx-post="/check_password/" %}
+                <label>{{ form.password2.label_tag }}</label>
+                {{ form.password2.errors }}
+                {% render_field form.password2 class="rounded" hx-post="/check_password/" %}
+            </div>
+        </form>
+    </div>
+{% endblock %}
