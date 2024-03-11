@@ -50,7 +50,7 @@ INSTALLED_APPS = [
     "widget_tweaks",
     "recipester",
     "compressor",
-    "livereload",
+    "django_browser_reload",
 ]
 
 MIDDLEWARE = [
@@ -62,7 +62,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django_htmx.middleware.HtmxMiddleware",
-    "livereload.middleware.LiveReloadScript",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = "recipester.urls"
@@ -147,5 +147,5 @@ LOGOUT_REDIRECT_URL = "index"
 
 COMPRESS_ENABLED = True
 COMPRESS_ROOT = BASE_DIR / "recipester/static"
-STATICFILES_FINDERS = ["compressor.finders.CompressorFinder"]
+STATICFILES_FINDERS = ["compressor.finders.CompressorFinder", "django.contrib.staticfiles.finders.AppDirectoriesFinder"]
 

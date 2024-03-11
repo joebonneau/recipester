@@ -1,0 +1,19 @@
+<div class="flex flex-1 justify-items-center my-auto pl-3">
+    <span class="text-2xl font-light">Recipester</span>
+</div>
+<div class="flex flex-1 justify-end items-center font-light">
+    <ul class="flex list-none pr-3 gap-4">
+        <li>
+            <a href="/recipes/">My Recipes</a>
+        </li>
+        <li>
+            <a href="/shopping_lists/">Shopping Lists</a>
+        </li>
+        <li>
+            <a href="/register/">Register</a>
+        </li>
+        <li>
+            <a href="/login/">Login</a>
+        </li>
+    </ul>
+</div>

@@ -1,15 +1,2 @@
 {% extends "base.dhtml" %}
-{% block content %}
-    <h1>Home</h1>
-    <a id="htmx-link"
-       href="{% url 'index' %}"
-       hx-boost="true"
-       hx-target="#htmx-content">New Page</a>
-    <ul id="htmx-content">
-    </ul>
-    <div id="page-content">{% include "form.dhtml" %}</div>
-    <!-- <div hx-trigger="every 2s" -->
-    <!--      hx-target="#htmx-content" -->
-    <!--      hx-get="{% url 'success' %}" -->
-    <!--      hx-swap="beforeend"></div> -->
-{% endblock %}
+{% block content %}<h1>Home</h1>{% endblock %}

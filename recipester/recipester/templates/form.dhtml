@@ -1,4 +1,0 @@
-<form id="submit-form" hx-get="{% url 'index' %}" hx-target="body">
-    {{ form.as_p }}
-    <button type="submit">Submit</button>
-</form>
