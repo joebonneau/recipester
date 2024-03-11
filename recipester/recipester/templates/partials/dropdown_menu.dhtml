@@ -1,0 +1,28 @@
+<button id="menu-button"
+        class="relative group transition-all duration-200 focus:overflow-visible w-max h-max overflow-hidden flex flex-row items-center justify-center bg-white gap-1">
+    <span>Account</span>
+    <svg id="arrow-icon"
+         class="rotate-90 transition-all duration-100"
+         xmlns="http://www.w3.org/2000/svg"
+         width="22"
+         height="22"
+         viewBox="0 0 24 24">
+        <path fill="currentColor" d="m12 10.8l-3.9 3.9q-.275.275-.7.275t-.7-.275q-.275-.275-.275-.7t.275-.7l4.6-4.6q.3-.3.7-.3t.7.3l4.6 4.6q.275.275.275.7t-.275.7q-.275.275-.7.275t-.7-.275z" />
+    </svg>
+    <div id="dropdown-menu"
+         class="absolute shadow-lg -bottom-28 left-0 w-full h-max p-2 bg-white border border-zinc-200 rounded-lg flex flex-col gap-2">
+        <!-- <span class="flex flex-row gap-2 items-center hover:bg-zinc-100 p-2 rounded-lg"><a href="/register">Register</a></span> -->
+        <a href="/register">Register</a>
+        <span class="flex flex-row gap-2 items-center hover:bg-zinc-100 p-2 rounded-lg"><a href="/login">Login</a></span>
+    </div>
+</button>
+<script>
+    const button = document.getElementById('menu-button');
+    const arrowIcon = document.getElementById('arrow-icon');
+    const dropdownMenu = document.getElementById('dropdown-menu');
+
+    button.addEventListener('click', () => {
+        dropdownMenu.classList.toggle('hidden');
+        arrowIcon.classList.toggle('rotate-180');
+    });
+</script>

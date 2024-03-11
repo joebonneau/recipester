@@ -1,7 +1,7 @@
 <div class="flex flex-1 justify-items-center my-auto pl-3">
     <span class="text-2xl font-light">Recipester</span>
 </div>
-<div class="flex flex-1 justify-end items-center font-light">
+<div class="flex flex-1 justify-end justify-items-center items-center font-light">
     <ul class="flex list-none pr-3 gap-4">
         <li>
             <a href="/recipes/">My Recipes</a>
@@ -15,5 +15,6 @@
         <li>
             <a href="/login/">Login</a>
         </li>
+        <li>{% include "partials/dropdown_menu.dhtml" %}</li>
     </ul>
 </div>

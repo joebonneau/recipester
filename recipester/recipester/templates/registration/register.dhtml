@@ -12,7 +12,7 @@
                     <div id="username-error"></div>
                     {% render_field form.password1 class="rounded" placeholder="Password" hx-post="/check_password/" %}
                     <div id="password1-error"></div>
-                    {% render_field form.password2 class="rounded" placeholder="Confirm password"hx-post="/check_password/" %}
+                    {% render_field form.password2 class="rounded" placeholder="Confirm password" hx-post="/check_password/" %}
                     <div id="password2-error"></div>
                     <div class="flex flex-col min-h-full items-end justify-end">
                         <button type="submit"
