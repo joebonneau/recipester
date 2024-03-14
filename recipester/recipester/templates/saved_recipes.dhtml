@@ -1,0 +1,27 @@
+{% extends "base.dhtml" %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="container flex flex-col min-h-svh justify-center mx-auto max-w-xl">
+        <div class="flex flex-col bg-white border-solid rounded-3xl shadow"
+             style="min-height: 50svh">
+            <h1 class="text-left mt-5 mb-10 px-6 py-3 text-3xl">Create an Account</h1>
+            <form action="{% url 'register' %}" autocomplete="off" method="POST">
+                {% csrf_token %}
+                <div class="flex flex-col items-left px-6 pt-2 gap-2">
+                    {% render_field form.username class="rounded" placeholder="Username" hx-post="/check_username/" hx-swap="outerhtml" hx-trigger="keyup changed" hx-target="#username-error" %}
+                    <div id="username-error"></div>
+                    {% render_field form.password1 class="rounded" placeholder="Password" hx-post="/check_password/" %}
+                    <div id="password1-error"></div>
+                    {% render_field form.password2 class="rounded" placeholder="Confirm password" hx-post="/check_password/" %}
+                    <div id="password2-error"></div>
+                    <div class="flex flex-col min-h-full items-end justify-end">
+                        <button type="submit"
+                                class="rounded-full shadow bg-blue-500 px-3 py-2 mt-1 text-white hover:bg-blue-600">
+                            Register
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

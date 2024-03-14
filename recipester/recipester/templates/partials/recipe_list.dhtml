@@ -1,0 +1,13 @@
+{% if recipes %}
+    {% for recipe in recipes %}
+        <div class="flex flex-col gap-1 rounded bg-gray-100 shadow ml-3 pl-3"
+             style="max-width: 75svw">
+            <a class="text-2xl" href={{ recipe.url }} target="_blank">{{ recipe.title }}</a>
+            <p>Author: {{ recipe.site_name }}</p>
+            <p>Saved on: {{ recipe.date_saved }}</p>
+            <p>{{ recipe.description }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No recipes found</p>
+{% endif %}

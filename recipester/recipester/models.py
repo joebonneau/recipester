@@ -4,11 +4,12 @@ from django.db import models
 
 class Recipe(models.Model):
     title = models.CharField(max_length=200)
-    url = models.URLField()
+    url = models.URLField(unique=True)
+    site_name = models.CharField(max_length=200)
     description = models.TextField()
     date_saved = models.DateTimeField(auto_now_add=True)
     archived = models.BooleanField(default=False)
-    user_id = models.ForeignKey("User", on_delete=models.CASCADE)
+    user = models.ForeignKey("User", on_delete=models.CASCADE)
     ingredients = models.ManyToManyField("Ingredient")
     notes = models.ManyToManyField("Note")
 

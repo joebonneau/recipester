@@ -1,0 +1,30 @@
+{% extends "base.dhtml" %}
+{% load widget_tweaks %}
+{% block content %}
+    <div class="container flex flex-col mt-24 mx-10 max-w-screen-2xl" style="">
+        <div class="flex flex-col bg-white border-solid rounded-3xl shadow"
+             style="min-height: 900px;
+                    max-height: calc(1642px - 200px)">
+            <h1 class="text-left mt-5 mb-10 px-6 py-3 text-3xl">My Recipes</h1>
+            <div class="flex flex-col">
+                <form hx-get="{% url 'recipes' %}">
+                </form>
+                <form class="flex flex-row pl-3 mb-3 gap-2"
+                      hx-post="{% url 'add_recipe' %}"
+                      hx-target="#recipe-list">
+                    {% csrf_token %}
+                    <div>
+                        <input class="rounded" type="text" name="url" placeholder="Enter recipe URL">
+                        <button htmx-post="{% url 'add_recipe' %}"
+                                hx-target="#recipe-list"
+                                class="rounded-full text-white bg-blue-500 hover:bg-blue-600 px-2 py-2"
+                                type="submit">Add recipe</button>
+                    </div>
+                </form>
+                <div class="flex flex-col overflow-y-auto overflow-x-hidden gap-3 min-w-full"
+                     id="recipe-list"
+                     style="max-height: 700px">{% include "partials/recipe_list.dhtml" %}</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
