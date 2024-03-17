@@ -1,28 +1,82 @@
-<div class="flex flex-1 justify-items-center my-auto pl-3">
-    <span class="text-2xl font-light">Recipester</span>
-</div>
-<div class="flex flex-1 justify-end justify-items-center items-center font-light">
-    <ul class="flex items-center list-none pr-3 gap-4">
-        {% if user.is_authenticated %}
+<div class="navbar bg-base-100">
+    <div class="navbar-start">
+        <a class="btn btn-ghost text-xl font-normal">Recipester</a>
+    </div>
+    <div class="navbar-end">
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <!-- TODO: Change icon to hamburger or right-aligned version of this one -->
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     class="h-5 w-5"
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+            </div>
+            <ul tabindex="0"
+                class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 font-normal">
+                {% if user.is_authenticated %}
+                    <li class="menu-title">{{ user.username }}</li>
+                    <li>
+                        <a href="my_recipes/">My Recipes</a>
+                    </li>
+                    <li>
+                        <a href="shopping_lists/">Shopping Lists</a>
+                    </li>
+                    <li>
+                        <a href="settings/">Settings</a>
+                    </li>
+                    <li>
+                        <a href="logout/">Log Out</a>
+                    </li>
+                {% else %}
+                    <summary>Account</summary>
+                    <ul class="p-2 bg-base-100 rounded-t-none">
+                        <li>
+                            <a href="register/">Register</a>
+                        </li>
+                        <li>
+                            <a href="login/">Login</a>
+                        </li>
+                    </ul>
+                {% endif %}
+            </li>
+        </ul>
+    </div>
+    <div class="hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 font-normal">
             <li>
-                <a href="/recipes/">My Recipes</a>
+                <a href="my_recipes/">My Recipes</a>
             </li>
             <li>
-                <a href="/shopping_lists/">Shopping Lists</a>
-            </li>
-            <!-- TODO: Add logout endpoint -->
-            <li>
-                <div class="flex rounded-full bg-blue-500 hover:bg-blue-600 text-white px-2 py-2">
-                    <a href="/logout/">{{ user.username }}</a>
-                </div>
-            </li>
-        {% else %}
-            <li>
-                <a href="/register/">Register</a>
+                <a href="shopping_lists/">Shopping Lists</a>
             </li>
             <li>
-                <a href="/login/">Login</a>
+                <details>
+                    {% if user.is_authenticated %}
+                        <summary>{{ user.username }}</summary>
+                        <ul class="p-2 bg-base-100 rounded-t-none">
+                            <li>
+                                <a href="settings/">Settings</a>
+                            </li>
+                            <li>
+                                <a href="logout/">Log Out</a>
+                            </li>
+                        </ul>
+                    {% else %}
+                        <summary>Account</summary>
+                        <ul class="p-2 bg-base-100 rounded-t-none">
+                            <li>
+                                <a href="register/">Register</a>
+                            </li>
+                            <li>
+                                <a href="login/">Login</a>
+                            </li>
+                        </ul>
+                    {% endif %}
+                </details>
             </li>
-        {% endif %}
-    </ul>
+        </ul>
+    </div>
 </div>
