@@ -10,8 +10,8 @@
         {% compress css %}
             <link rel="stylesheet" href="{% static 'src/output.css' %}">
         {% endcompress %}
-        <!-- <link href="https://fonts.googleapis.com/icon?family=Material+Icons" -->
-        <!--       rel="stylesheet"> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+              rel="stylesheet">
         <!-- TODO: Don't use CDN -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
