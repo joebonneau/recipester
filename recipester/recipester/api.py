@@ -220,8 +220,7 @@ def create_entities(
 
     for i in range(len(ingredients)):
         ingredient = None
-        print(Unit.objects.all())
-        print(units[i])
+        unit = None
         if units[i]:
             unit = get_or_none(Unit, name=units[i])
             if not unit:
@@ -284,7 +283,7 @@ def add_recipe(request):
                     ingredients_li
                 )
             case _:
-                pass
+                quantities, units, items = parse_nyt_cooking(ingredients_li)
     else:
         ingredients_div = soup.find("div", attrs={"data-testid": "IngredientList"})
         quantities, units, items = parse_bon_appetit(ingredients_div)
